@@ -104,9 +104,9 @@ var igv = (function (igv) {
             this.end >= range.end;
     }
 
-    igv.loadGenome = function (fastaUrl, cytobandUrl, continuation) {
+    igv.loadGenome = function (fastaUrl, faiUrl, cytobandUrl, continuation) {
 
-        var sequence = new igv.FastaSequence(fastaUrl);
+        var sequence = new igv.FastaSequence(fastaUrl, faiUrl);
 
         sequence.loadIndex(function (fastaIndex) {
 

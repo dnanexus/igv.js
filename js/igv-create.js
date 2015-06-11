@@ -73,7 +73,7 @@ var igv = (function (igv) {
             }
         }
 
-        if (!(config.reference && config.reference.fastaURL)) {
+        if (!(config.reference && config.reference.fastaURL && config.reference.faiURL)) {
             alert("Fatal error:  reference must be defined");
             return;
         }
@@ -191,7 +191,7 @@ var igv = (function (igv) {
             }
         }
 
-        igv.loadGenome(config.reference.fastaURL, config.reference.cytobandURL, function (genome) {
+        igv.loadGenome(config.reference.fastaURL, config.reference.faiURL, config.reference.cytobandURL, function (genome) {
 
             genome.id = config.reference.genomeId;
             browser.genome = genome;
