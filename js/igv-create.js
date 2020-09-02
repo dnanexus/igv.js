@@ -451,23 +451,20 @@ function extractQuery(config) {
             if (j < 0) j = i2;
 
             s = uri.substring(i, j);
-            tokens = s.split("=", 2);
+            tokens = s.split("=", 2);            
+            key = tokens[0];
+            value = decodeURIComponent(tokens[1]);
 
-            if (tokens.length === 2) {
-                key = tokens[0];
-                value = decodeURIComponent(tokens[1]);
-
-                if ('file' === key) {
-                    // IGV desktop style file parameter
-                    files = value.split(',')
-                } else if ('index' === key) {
-                    // IGV desktop style index parameter
-                    indexURLs = value.split(',')
-                } else {
-                    config[key] = value;
-                }
-                i = j + 1;
+            if ('file' === key) {
+                // IGV desktop style file parameter
+                files = value.split(',')
+            } else if ('index' === key) {
+                // IGV desktop style index parameter
+                indexURLs = value.split(',')
+            } else {
+                config[key] = value;
             }
+            i = j + 1;            
         }
     }
 
